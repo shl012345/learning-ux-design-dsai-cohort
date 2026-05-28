@@ -33,6 +33,7 @@ Each module has its own README with the learning moments, the prompts to paste, 
 - [`GLOSSARY.md`](./GLOSSARY.md) — plain-language definitions for every technical term used in the docs
 - [`AGENTS.md`](./AGENTS.md) — rules for AI coding agents working in this repo
 - [`SITE-CONFIG.md`](./SITE-CONFIG.md) — field-by-field reference for `site.config.json`
+- [`TECH_STACK.md`](./TECH_STACK.md) — the 14-item tech stack, categorised: core / content pipeline / tools / platforms
 - [`site.config.json`](./site.config.json) — site-level metadata (title, author, navigation order, branding)
 - [`DESIGN.md`](./DESIGN.md) — the design language exported from Stitch (placeholder until the Stitch step)
 

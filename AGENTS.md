@@ -101,7 +101,7 @@ Image references via `![alt](/images/...)` that point at a missing file should p
 - Adding a new top-level dependency
 - Introducing a new pattern that conflicts with these rules
 - Restructuring `/content/`, `/examples/`, or the routing scheme
-- Renaming any of the documented files (`BRIEF.md`, `CONTENT-SPEC.md`, `FORK.md`, `DEMO.md`, `IMAGES.md`, `GLOSSARY.md`, `SITE-CONFIG.md`, `WHICH_DOC_WHEN.md`, `site.config.json`, `DESIGN.md`)
+- Renaming any of the documented files (`BRIEF.md`, `CONTENT-SPEC.md`, `FORK.md`, `DEMO.md`, `IMAGES.md`, `GLOSSARY.md`, `SITE-CONFIG.md`, `TECH_STACK.md`, `WHICH_DOC_WHEN.md`, `site.config.json`, `DESIGN.md`)
 
 ## What you can do without asking
 
