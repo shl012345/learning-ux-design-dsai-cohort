@@ -1,0 +1,64 @@
+{
+  "$schema": "./site.config.schema.json",
+  "_comment": "Single source of truth for site-level metadata. When forking this template, this is the first file to edit. See FORK.md for the full recipe.",
+
+  "site": {
+    "title": "The DSAI Companion Reader",
+    "tagline": "Read this alongside your first cohort",
+    "description": "A self-paced reader for adults moving into data science and AI: how to learn the craft, how to work with AI tools well, and the shape of the systems your cohort builds will eventually become. Includes a build diary documenting how the site itself was made.",
+    "url": "https://learning-ux-design-dsai.vercel.app",
+    "language": "en",
+    "locale": "en-SG"
+  },
+
+  "author": {
+    "name": "Swarup Biswas",
+    "email": "swarup.biswas@outlook.com",
+    "url": "",
+    "bio": "Adult-training instructional designer; teaches DSAI cohorts in Singapore and writes about the craft of learning to build."
+  },
+
+  "navigation": {
+    "_comment": "Section slugs in the order they should appear in the site navigation. Must match the folder names under /content/lessons/ (and /content/build-diary if used).",
+    "primary": [
+      "how-to-learn",
+      "working-with-ai",
+      "shape-of-an-ai-app",
+      "the-hard-parts",
+      "what-next"
+    ],
+    "secondary": [
+      "build-diary"
+    ]
+  },
+
+  "branding": {
+    "_comment": "Filled in after the Stitch design step. Until then these are placeholders that the components fall back to.",
+    "accentColor": "#000000",
+    "fontHeading": "system-ui",
+    "fontBody": "system-ui",
+    "fontCode": "ui-monospace",
+    "logoText": "DSAI Reader",
+    "favicon": "/favicon.ico"
+  },
+
+  "features": {
+    "_comment": "Feature flags. Set to false to hide a feature without removing the code.",
+    "showBuildDiary": true,
+    "showAboutPage": true,
+    "showSearch": false,
+    "showDarkMode": true,
+    "showReadingTime": true
+  },
+
+  "footer": {
+    "copyright": "© 2026 Swarup Biswas. All rights reserved.",
+    "links": []
+  },
+
+  "seo": {
+    "_comment": "Defaults used when a page doesn't override them.",
+    "defaultImage": "/og-default.png",
+    "twitterHandle": ""
+  }
+}
