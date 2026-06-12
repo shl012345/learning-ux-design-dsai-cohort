@@ -25,6 +25,8 @@ export async function generateStaticParams() {
   return params;
 }
 
+export const dynamicParams = false;
+
 export default async function LessonPage({ params }: LessonPageProps) {
   const { section: sectionSlug, slug: lessonSlug } = await params;
   const lesson = getLesson(sectionSlug, lessonSlug);

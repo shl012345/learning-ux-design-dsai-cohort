@@ -13,6 +13,8 @@ export async function generateStaticParams() {
     .map(s => ({ section: s.metadata.slug }));
 }
 
+export const dynamicParams = false;
+
 export default async function SectionPage({ params }: SectionPageProps) {
   const { section: sectionSlug } = await params;
   const section = getSection(sectionSlug);
