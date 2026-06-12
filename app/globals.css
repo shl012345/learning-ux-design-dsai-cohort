@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=JetBrains+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #f8f6f6;
+  --foreground: #22201F;
+  --muted: #8A837A;
+  --border: #E5E0D8;
+  --accent: #e85b30;
+  --accent-hover: #cf461c;
+  --code-bg: #2A2827;
+  --surface: #F0ECE5;
+}
+
+.dark {
+  --background: #211511;
+  --foreground: #f8f6f6;
+  --muted: #A39B92;
+  --border: #3A2C27;
+  --code-bg: #1A120F;
+  --surface: #2D1E19;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-code-bg: var(--code-bg);
+  --color-surface: var(--surface);
+
+  --font-body: 'Literata', Georgia, serif;
+  --font-code: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.7;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}

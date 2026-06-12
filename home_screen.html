@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Monogram Journal - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#e85b30",
+          "background-light": "#f8f6f6",
+          "background-dark": "#211511",
+        },
+        fontFamily: {
+          "display": ["Literata", "serif"]
+        },
+        borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+      },
+    },
+  }
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+  body {
+    background-color: theme('colors.background-light');
+    color: theme('colors.background-dark');
+    font-family: theme('fontFamily.display');
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+</style>
+</head>
+<body>
+<!-- SHARED COMPONENT: TopNavBar -->
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-[#fcf9f8] group/design-root overflow-x-hidden" style='font-family: "Be Vietnam Pro", "Noto Sans", sans-serif;'>
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f3eae7] px-10 py-3">
+<div class="flex items-center gap-4 text-[#1b110e]">
+<div class="size-4">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M6 6H42L36 24L42 42H6L12 24L6 6Z" fill="currentColor"></path></svg>
+</div>
+<h2 class="text-[#1b110e] text-lg font-bold leading-tight tracking-[-0.015em]">Monogram Journal</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9">
+<a class="text-[#1b110e] text-sm font-medium leading-normal" href="#">Home</a>
+<a class="text-[#1b110e] text-sm font-medium leading-normal" href="#">About</a>
+</div>
+</div>
+</header>
+<div class="@container">
+<div class="flex flex-col gap-6 px-4 py-10 @[480px]:gap-8 @[864px]:flex-row">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded @[480px]:h-auto @[480px]:min-w-[400px] @[864px]:w-full" data-alt="A minimalist architectural photograph of an empty, high-ceiling modern gallery space. Soft, diffused daylight filters through large frosted windows, casting gentle shadows on pristine white walls. The scene evokes a calm, scholarly atmosphere with high-key lighting and a muted color palette featuring warm sand and subtle terracotta accents. The mood is serene, focused, and intellectually stimulating." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD4LYqvqHU1pSj8lePXRtPMD7JRZAMKiM4owZJEz-dgLM-x8LtszcnqwHiiaOR77QalSTp0dL8yIehqTmMoH6ECy1urFQgKs91dktdU_H6D4i-pfkTrngJlDVQVNisTnIxjMy_WOZYPS_YSGKI-y9ouN1pK-SsntNabhT9hMKuSux3nvE-wCm3lzrCYAgph36Ha2wAFptdjf_jvHpXCLgXjJQuV1zxHkvV0aGoKu-46mqn-_F9Uoe2KeHV2ZhCsbafw-qlB1OWLvS4");'></div>
+<div class="flex flex-col gap-6 @[480px]:min-w-[400px] @[480px]:gap-8 @[864px]:justify-center">
+<div class="flex flex-col gap-2 text-left">
+<h1 class="text-[#1b110e] text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
+                      Learning AI requires reading, not just reacting.
+                    </h1>
+<h2 class="text-[#1b110e] text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                      A focused environment for advanced practitioners.
+                    </h2>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#e85b30] text-[#fcf9f8] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+<span class="truncate">View Learning Paths</span>
+</button>
+</div>
+</div>
+</div>
+<h2 class="text-[#1b110e] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Curated Learning Paths</h2>
+<!-- New Content: Learning Paths List -->
+<div class="flex flex-col w-full font-display px-4">
+<a class="group block py-6 border-t border-[#e5e0d8] transition-colors duration-0 hover:text-primary" href="#">
+<h3 class="text-2xl text-background-dark group-hover:text-primary group-hover:underline decoration-primary underline-offset-4 mb-2">Generative Models: Foundations</h3>
+<p class="text-lg text-[#8a837a] leading-relaxed group-hover:text-background-dark transition-colors duration-0">Understanding latent space dynamics, diffusion processes, and the core probabilistic principles behind modern generative AI.</p>
+</a>
+<a class="group block py-6 border-t border-[#e5e0d8] transition-colors duration-0 hover:text-primary" href="#">
+<h3 class="text-2xl text-background-dark group-hover:text-primary group-hover:underline decoration-primary underline-offset-4 mb-2">Neural Network Architecture</h3>
+<p class="text-lg text-[#8a837a] leading-relaxed group-hover:text-background-dark transition-colors duration-0">A rigorous journey from foundational perceptrons to state-of-the-art transformer blocks and attention mechanisms.</p>
+</a>
+<a class="group block py-6 border-t border-[#e5e0d8] transition-colors duration-0 hover:text-primary" href="#">
+<h3 class="text-2xl text-background-dark group-hover:text-primary group-hover:underline decoration-primary underline-offset-4 mb-2">Optimization Mathematics</h3>
+<p class="text-lg text-[#8a837a] leading-relaxed group-hover:text-background-dark transition-colors duration-0">The calculus and linear algebra behind the learning rate, gradient descent, and advanced optimization algorithms.</p>
+</a>
+</div>
+<!-- End New Content -->
+</div>
+</div>
+</div>
+</div>
+</body></html>

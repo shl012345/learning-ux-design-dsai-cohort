@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Monogram Journal - About</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e85b30",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211511",
+                        "deep-ink": "#22201F",
+                        "graphite": "#8A837A",
+                    },
+                    fontFamily: {
+                        "display": ["Literata", "serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem", "sm": "0.125rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background-light');
+            color: theme('colors.deep-ink');
+            font-family: theme('fontFamily.display');
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Custom bullet styling for the values list */
+        .manifesto-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .manifesto-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .manifesto-list li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: theme('colors.primary');
+            font-weight: bold;
+        }
+
+        /* Reading optimized typography */
+        .prose-body {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Micro-interaction for links */
+        .text-link {
+            text-decoration-color: transparent;
+            transition: text-decoration-color 0.2s ease-in-out;
+            text-underline-offset: 4px;
+        }
+        
+        .text-link:hover {
+            text-decoration-color: theme('colors.primary');
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center py-12 px-6 md:py-24">
+<!-- Top Navigation Exception: Minimal Header with Back Button -->
+<header class="w-full max-w-[540px] mb-16 flex items-center">
+<a class="group inline-flex items-center gap-2 text-graphite hover:text-primary transition-colors duration-200 text-sm tracking-wide rounded-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background-light" href="#">
+<span aria-hidden="true" class="material-symbols-outlined text-[18px] group-hover:-translate-x-1 transition-transform duration-200" data-icon="arrow_back">arrow_back</span>
+<span>Back to Home</span>
+</a>
+</header>
+<!-- Main Content Container -->
+<main class="w-full max-w-[540px]">
+<!-- Hero Section -->
+<section class="mb-12">
+<h1 class="text-4xl md:text-[40px] leading-[1.2] font-semibold text-deep-ink tracking-tight mb-8">
+                Learning AI requires reading, not just reacting.
+            </h1>
+</section>
+<!-- Manifesto Body -->
+<article class="text-deep-ink">
+<p class="prose-body">
+                We built Monogram Journal because we believe the current landscape of technical education is broken. The proliferation of gamified micro-learning, endless video tutorials, and fragmented documentation has created an illusion of competence without deep understanding.
+            </p>
+<p class="prose-body">
+                Mastering advanced data science and artificial intelligence concepts requires a fundamental shift in how we consume information. True technical comprehension demands rigorous, uninterrupted reading in an environment that respects the complexity of the material.
+            </p>
+<p class="prose-body">
+                Our philosophy is rooted in three core tenets:
+            </p>
+<!-- Values List -->
+<ul class="manifesto-list mt-8 mb-12">
+<li>
+<strong>Deep reading over quick engagement.</strong> We prioritize sustained attention and complex narratives over bite-sized, easily digestible dopamine hits.
+                </li>
+<li>
+<strong>Typographic respect for complex concepts.</strong> Mathematics, code, and dense theory require an editorial approach that aids legibility, not flashy UI that distracts from it.
+                </li>
+<li>
+<strong>Distraction-free environments.</strong> For advanced practitioners, focus is the most valuable resource. We strip away the noise so you can grapple with the signal.
+                </li>
+</ul>
+<p class="prose-body">
+                This is not a platform for learning syntax; it is a journal for internalizing paradigms. Welcome to a slower, deeper way to learn.
+            </p>
+</article>
+<!-- Sign-off Block -->
+<footer class="mt-20 pt-8 border-t border-[#E5E0D8] flex justify-center">
+<div class="text-center">
+<span aria-label="Monogram Journal Signature" class="text-primary font-bold text-3xl italic tracking-tighter block mb-2">M.J.</span>
+<span class="text-graphite text-xs uppercase tracking-widest">Est. 2024</span>
+</div>
+</footer>
+</main>
+</body></html>

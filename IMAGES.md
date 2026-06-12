@@ -44,7 +44,7 @@ Hard constraints:
 
 ## Images
 
-### [ ] `lesson-03-four-pass-building.png`
+### [x] `lesson-03-four-pass-building.png`
 
 **Used in:** `content/lessons/how-to-learn/03-reading-code-you-didnt-write.md`
 
@@ -66,7 +66,7 @@ The four floor labels are the ONLY text in the illustration. No building name, n
 
 ---
 
-### [ ] `lesson-04-diataxis-grid.png`
+### [x] `lesson-04-diataxis-grid.png`
 
 **Used in:** `content/lessons/how-to-learn/04-reading-docs.md`
 
@@ -92,7 +92,7 @@ The four box labels and the two axis labels are the ONLY text. No title, no lege
 
 ---
 
-### [ ] `lesson-09-seven-boxes.png`
+### [x] `lesson-09-seven-boxes.png`
 
 **Used in:** `content/lessons/shape-of-an-ai-app/09-shape-of-a-modern-ai-app.md`
 
@@ -117,7 +117,7 @@ Arrows are simple hand-drawn lines with small triangular arrowheads. Use dashed 
 
 ---
 
-### [ ] `lesson-11-model-and-supporting-cast.png`
+### [x] `lesson-11-model-and-supporting-cast.png`
 
 **Used in:** `content/lessons/shape-of-an-ai-app/11-system-around-the-model.md`
 
@@ -144,7 +144,7 @@ No title, no other annotations.
 
 ---
 
-### [ ] `lesson-14-ship-zone.png`
+### [x] `lesson-14-ship-zone.png`
 
 **Used in:** `content/lessons/the-hard-parts/14-good-enough-to-ship.md` (first image)
 
@@ -171,7 +171,7 @@ No axis labels, no title, no scale numbers.
 
 ---
 
-### [ ] `lesson-14-ship-checklist.png`
+### [x] `lesson-14-ship-checklist.png`
 
 **Used in:** `content/lessons/the-hard-parts/14-good-enough-to-ship.md` (second image)
 

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>01. Latent Space Dynamics - Monogram Journal</title>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#e85b30",
+          "background-light": "#f8f6f6",
+          "background-dark": "#211511",
+          "surface": "#F0ECE5",
+          "text-main": "#22201F",
+          "text-muted": "#8A837A",
+          "code-bg": "#2A2827",
+        },
+        fontFamily: {
+          "display": ["Literata", "serif"],
+          "mono": ["JetBrains Mono", "monospace"]
+        },
+        borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+      },
+    },
+  }
+</script>
+<style>
+  body {
+    background-color: #f8f6f6;
+    color: #22201F;
+    font-family: 'Literata', serif;
+    font-size: 18px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Literata', serif;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #22201F;
+  }
+
+  code, pre {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+  }
+
+  .prose-container {
+    max-width: 65ch;
+  }
+
+  .sidenote-ref {
+    color: #e85b30;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 0.75em;
+    vertical-align: super;
+    line-height: 0;
+    padding: 0 2px;
+  }
+
+  /* Desktop 3-column layout */
+  @media (min-width: 1024px) {
+    .layout-grid {
+      display: grid;
+      grid-template-columns: 1fr 2.5fr 1.5fr;
+      gap: 3rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .sidenote-container {
+      position: relative;
+      width: 100%;
+    }
+
+    .sidenote {
+      position: absolute;
+      width: 100%;
+      font-size: 14px;
+      color: #8A837A;
+      line-height: 1.5;
+      transition: background-color 0.2s ease;
+      padding: 0.5rem;
+      border-radius: 0.125rem;
+    }
+    
+    /* Simulate alignment with paragraph (normally requires JS for exact alignment) */
+    .sidenote-1 { top: 120px; }
+    .sidenote-2 { top: 480px; }
+  }
+
+  /* Tablet 2-column layout */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .layout-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      padding: 0 2rem;
+    }
+    .left-margin { display: none; }
+    
+    .sidenote-container {
+      position: relative;
+      width: 100%;
+    }
+
+    .sidenote {
+      position: absolute;
+      width: 100%;
+      font-size: 14px;
+      color: #8A837A;
+      line-height: 1.5;
+      padding: 0.5rem;
+      border-radius: 0.125rem;
+    }
+    .sidenote-1 { top: 120px; }
+    .sidenote-2 { top: 500px; }
+  }
+
+  /* Mobile 1-column layout */
+  @media (max-width: 767px) {
+    .layout-grid {
+      display: block;
+      padding: 0 1rem;
+    }
+    .left-margin { display: none; }
+    .sidenote-container { display: none; } /* Hide absolute sidenotes */
+    
+    .inline-sidenote {
+      display: block !important;
+      font-size: 14px;
+      color: #8A837A;
+      border-left: 2px solid #e85b30;
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+      background-color: #F0ECE5;
+      padding: 1rem;
+      border-radius: 0.125rem;
+    }
+  }
+
+  /* Interaction Script Support */
+  .sidenote.active-hover {
+    background-color: #F0ECE5;
+    color: #22201F;
+  }
+</style>
+</head>
+<body>
+<!-- Minimal Back Header -->
+<header class="w-full border-b border-[#E5E0D8] bg-background-light py-4 px-6 md:px-12 sticky top-0 z-10">
+<a class="inline-flex items-center text-text-muted hover:text-primary transition-colors text-sm font-mono tracking-wide uppercase" href="#">
+<span class="material-symbols-outlined mr-2" style="font-size: 18px;">arrow_back</span>
+    Back to Generative Models
+  </a>
+</header>
+<main class="py-12 md:py-24">
+<div class="layout-grid">
+<!-- Left Column (Empty/Nav on Desktop) -->
+<div class="left-margin text-text-muted font-mono text-xs tracking-widest uppercase pt-32">
+<div class="sticky top-32">
+<p class="mb-4">Module 01 / 08 Lessons</p>
+<p class="mb-2 text-text-main font-bold">01. Latent Space Dynamics</p>
+<p class="mb-2 hover:text-primary cursor-pointer transition-colors">02. Autoencoder Architectures</p>
+<p class="mb-2 hover:text-primary cursor-pointer transition-colors">03. Variational Bounds</p>
+</div>
+</div>
+<!-- Center Column (Prose) -->
+<div class="center-prose">
+<article class="prose-container mx-auto">
+<header class="mb-12">
+<p class="font-mono text-text-muted text-sm tracking-widest uppercase mb-4">Lesson 01 — 20 Min Read</p>
+<h1 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Latent Space Dynamics</h1>
+<p class="text-xl text-text-muted italic leading-relaxed">Understanding the continuous, lower-dimensional representations that generative models construct to navigate complex data distributions.</p>
+</header>
+<div class="space-y-8">
+<p>The core proposition of any generative model is that high-dimensional data (like images of faces, audio waveforms, or natural language) actually lies on a much lower-dimensional manifold. This compressed representation is known as the latent space.<a class="sidenote-ref" data-target="sn-1" href="#sn-1">1</a> To understand generative AI, one must shift focus from the raw pixels or tokens to the topological structure of this hidden space.</p>
+<!-- Mobile Inline Sidenote 1 -->
+<aside class="inline-sidenote hidden" id="inline-sn-1">
+<span class="font-mono text-primary font-bold mr-2">1</span>
+<strong>Latent</strong> from Latin <em>latens</em>, meaning "hidden or concealed." The features exist but are not directly observable without the model's transformation.
+          </aside>
+<p>When an autoencoder compresses an input, it maps it to a specific point in this space. However, in vanilla autoencoders, the latent space is rarely continuous or structured. If you sample a random point between two encoded images, the decoded result will likely be uninterpretable noise.</p>
+<blockquote class="border-l-2 border-primary pl-6 py-2 my-10 text-2xl italic font-display text-text-main">
+            "A well-structured latent space allows for semantic arithmetic. It transforms discrete data into continuous algebra."
+          </blockquote>
+<h2 class="text-2xl mt-12 mb-6">Structuring the Manifold</h2>
+<p>To make the latent space useful for generation, we must enforce structure. Variational Autoencoders (VAEs) achieve this by encoding inputs not as single points, but as distributions—typically multivariate Gaussians. This forces the model to ensure that points close to each other in the latent space decode to similar outputs.<a class="sidenote-ref" data-target="sn-2" href="#sn-2">2</a></p>
+<!-- Mobile Inline Sidenote 2 -->
+<aside class="inline-sidenote hidden" id="inline-sn-2">
+<span class="font-mono text-primary font-bold mr-2">2</span>
+            This continuity is enforced via the Kullback-Leibler (KL) divergence term in the loss function, pulling the distributions toward a standard normal prior.
+          </aside>
+<div class="my-10 bg-code-bg rounded text-[#F0ECE5] p-6 overflow-x-auto">
+<pre class="font-mono text-sm leading-relaxed"><code><span class="text-[#8A837A]"># PyTorch pseudo-code for latent sampling (Reparameterization Trick)</span>
+<span class="text-[#e85b30]">def</span> <span class="text-[#e0c080]">reparameterize</span>(mu, logvar):
+    <span class="text-[#8A837A]">"""</span>
+<span class="text-[#8A837A]">    mu: mean of the latent Gaussian</span>
+<span class="text-[#8A837A]">    logvar: log variance of the latent Gaussian</span>
+<span class="text-[#8A837A]">    """</span>
+    std = torch.exp(<span class="text-[#e85b30]">0.5</span> * logvar)
+    eps = torch.randn_like(std) <span class="text-[#8A837A]"># Sample from standard normal</span>
+    <span class="text-[#e85b30]">return</span> mu + eps * std</code></pre>
+</div>
+<p>The code above demonstrates the reparameterization trick, a crucial innovation that allows backpropagation through stochastic nodes. By decoupling the deterministic parameters (mean and variance) from the randomness (epsilon), gradients can flow freely during training.</p>
+<h2 class="text-2xl mt-12 mb-6">Comparing Dimensionality</h2>
+<p>The choice of latent dimensionality is a trade-off between reconstruction fidelity and generation quality. Too small, and the model suffers high reconstruction loss. Too large, and the latent space becomes sparse, breaking the continuity needed for generation.</p>
+<div class="my-10 overflow-x-auto">
+<table class="w-full text-left border-collapse font-mono text-sm">
+<thead>
+<tr class="border-b border-text-muted">
+<th class="py-3 px-4 font-normal text-text-muted uppercase">Architecture</th>
+<th class="py-3 px-4 font-normal text-text-muted uppercase">Input Dim</th>
+<th class="py-3 px-4 font-normal text-text-muted uppercase">Latent Dim</th>
+<th class="py-3 px-4 font-normal text-text-muted uppercase">Compression</th>
+</tr>
+</thead>
+<tbody class="text-text-main">
+<tr class="border-b border-[#E5E0D8] hover:bg-surface transition-colors">
+<td class="py-3 px-4">Simple MNIST VAE</td>
+<td class="py-3 px-4">784</td>
+<td class="py-3 px-4">2 - 20</td>
+<td class="py-3 px-4">~97%</td>
+</tr>
+<tr class="border-b border-[#E5E0D8] hover:bg-surface transition-colors">
+<td class="py-3 px-4">StyleGAN2 (Images)</td>
+<td class="py-3 px-4">1024x1024x3</td>
+<td class="py-3 px-4">512</td>
+<td class="py-3 px-4">&gt;99.9%</td>
+</tr>
+<tr class="border-b border-[#E5E0D8] hover:bg-surface transition-colors">
+<td class="py-3 px-4">GPT-3 (Text Embed)</td>
+<td class="py-3 px-4">Varies</td>
+<td class="py-3 px-4">12288</td>
+<td class="py-3 px-4">Dense Map</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ultimately, navigating latent space dynamics is akin to cartography. Data scientists map the contours of conceptual relationships, allowing algorithms to traverse smoothly from "cat" to "dog" or from a "sad" sentiment to a "joyful" one.</p>
+</div>
+</article>
+</div>
+<!-- Right Column (Marginalia - Desktop/Tablet) -->
+<div class="sidenote-container pt-32 hidden md:block">
+<aside class="sidenote sidenote-1" id="sn-1">
+<span class="font-mono text-primary font-bold block mb-1">1</span>
+<strong>Latent</strong> from Latin <em>latens</em>, meaning "hidden or concealed." The features exist but are not directly observable without the model's transformation.
+      </aside>
+<aside class="sidenote sidenote-2" id="sn-2">
+<span class="font-mono text-primary font-bold block mb-1">2</span>
+        This continuity is enforced via the Kullback-Leibler (KL) divergence term in the loss function, pulling the distributions toward a standard normal prior.
+      </aside>
+</div>
+</div>
+</main>
+<script>
+  // Simple interaction to highlight sidenotes on hover
+  document.querySelectorAll('.sidenote-ref').forEach(ref => {
+    ref.addEventListener('mouseenter', () => {
+      const targetId = ref.getAttribute('data-target');
+      const note = document.getElementById(targetId);
+      if(note) note.classList.add('active-hover');
+    });
+    ref.addEventListener('mouseleave', () => {
+      const targetId = ref.getAttribute('data-target');
+      const note = document.getElementById(targetId);
+      if(note) note.classList.remove('active-hover');
+    });
+  });
+</script>
+</body></html>
