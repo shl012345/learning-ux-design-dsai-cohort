@@ -10,7 +10,7 @@ coverage/
 # Next.js build output
 .next/
 out/
-build/
+/build/
 # Note: do NOT add `dist/` here — we use /dist/ for cohort module READMEs that must ship to students
 
 # Production / generated types
